@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodMan.Pages.Page1"
+             xmlns:viewmodel="clr-namespace:GoodMan.ViewModel"
+             Title="法鼓山-外部登入管理"
+             x:Name="cp"
+             >
+    
+      
+
+    <ContentPage.Resources>
+
+        <Style TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="#00ff00"/>
+        </Style>
+
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewmodel:Page1ViewModel x:Name="vmCP"/>
+    </ContentPage.BindingContext>
+    
+
+    <ContentPage.Content>       
+
+        <Grid VerticalOptions="Fill" Padding="0,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!--<BoxView Grid.Row="0" Grid.Column="0"/>
+            <BoxView Grid.Row="0" Grid.Column="1"/>
+            <BoxView Grid.Row="0" Grid.Column="2"/>
+
+            <BoxView Grid.Row="1" Grid.Column="0"/>
+            <BoxView Grid.Row="1" Grid.Column="1"/>
+            <BoxView Grid.Row="1" Grid.Column="2"/>
+
+            <BoxView Grid.Row="2" Grid.Column="0"/>
+            <BoxView Grid.Row="2" Grid.Column="1"/>
+            <BoxView Grid.Row="2" Grid.Column="2"/>
+
+            <BoxView Grid.Row="3" Grid.Column="0"/>
+            <BoxView Grid.Row="3" Grid.Column="1"/>
+            <BoxView Grid.Row="3" Grid.Column="2"/>-->
+            <Image Source="chu.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" />
+            <Button Text="Click" Grid.Row="2" Grid.Column="1" Command="{Binding SayHi}" Opacity=".5"/>
+            <Label Text="{Binding Name}" Grid.Row="3" Grid.Column="0"/>
+        </Grid>
+
+
+    </ContentPage.Content>
+</ContentPage>

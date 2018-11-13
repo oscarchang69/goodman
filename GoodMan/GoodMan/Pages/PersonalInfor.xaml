@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:viewmodel="clr-namespace:GoodMan.ViewModel"
+             x:Class="GoodMan.Pages.PersonalInfor" x:Name="pageCP">
+
+
+    <ContentPage.BindingContext>
+        <viewmodel:PersonalInforViewModel  x:Name="vm" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="EntryColor">#0000fa</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid VerticalOptions="Fill"  >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="Accent" Grid.Column="0" Grid.Row="0"/>
+            <BoxView BackgroundColor="Aqua" Grid.Column="1" Grid.Row="0"/>
+            <BoxView BackgroundColor="BlanchedAlmond" Grid.Column="2" Grid.Row="0"/>
+
+            <BoxView BackgroundColor="Accent" Grid.Column="0" Grid.Row="1"/>
+            <BoxView BackgroundColor="Aqua" Grid.Column="1" Grid.Row="1"/>
+            <BoxView BackgroundColor="BlanchedAlmond" Grid.Column="2" Grid.Row="1"/>
+
+            <BoxView BackgroundColor="Accent" Grid.Column="0" Grid.Row="2"/>
+            <BoxView BackgroundColor="Aqua" Grid.Column="1" Grid.Row="2"/>
+            <BoxView BackgroundColor="BlanchedAlmond" Grid.Column="2" Grid.Row="2"/>
+
+            <BoxView BackgroundColor="Accent" Grid.Column="0" Grid.Row="3"/>
+            <BoxView BackgroundColor="Aqua" Grid.Column="1" Grid.Row="3"/>
+            <BoxView BackgroundColor="BlanchedAlmond" Grid.Column="2" Grid.Row="3"/>
+
+            <controls:CircleImage                    
+                        Source="m1.jpg" 
+                        Aspect="AspectFill"      
+                        WidthRequest="140"
+                        HeightRequest="140"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"                        
+                        Grid.Column="1"
+                        Grid.Row="0"                        
+                    />            
+
+            <ScrollView 
+                Grid.Column="0" 
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Grid.RowSpan="3"
+                >
+
+                <StackLayout Margin="10" >
+                    <Label Text="姓名" Style="{StaticResource AppLabel}" />
+
+                    <Entry Placeholder="請輸入姓名" Text="聖嚴法師" TextColor="{StaticResource EntryColor}"></Entry>
+                    <Picker Title="請選擇" x:Name="picker" 
+                            ItemsSource="{Binding ageItems}"                            
+                            ItemDisplayBinding="{Binding value}"   
+                            SelectedItem="{Binding SelectedAge}" 
+                            TextColor="{StaticResource EntryColor}"
+                          >
+                    </Picker>
+
+
+                    <!--<Label Text="{Binding Source={x:Reference picker}, Path=SelectedItem.key}" />-->
+                    <Label Text="{Binding ShowSelectedAge}"></Label>
+
+
+
+                    <Label Text="單位"/>
+                    <Entry Placeholder="請輸入單位" Text="資訊處" TextColor="{DynamicResource AppGreen}" />
+                    <Button Text="存檔" Command="{Binding Save}" BorderRadius="10" />
+                    <Button Text="Alert By CodeBehind" Clicked="Button_Clicked" BorderRadius="15"/>
+                    <Button Text="Alert By ViewMode" Command="{Binding Alert}" 
+                            BorderColor="Accent" 
+                            BorderWidth="3" 
+                            BorderRadius="60"/>
+
+                </StackLayout>
+
+
+
+
+
+            </ScrollView>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

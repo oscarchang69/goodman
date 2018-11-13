@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodMan.Pages.Page2"
+             xmlns:viewmodel="clr-namespace:GoodMan.ViewModel"
+             Title="登入"
+             x:Name="pageCP"
+             >
+    <ContentPage.BindingContext>
+        <viewmodel:Page2ViewModel x:Name="vmcp"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout  VerticalOptions="Start" Margin="20">
+            <Image Source="bio.png" Aspect="AspectFill"  HeightRequest="200"/>
+            <Label Text="帳號"/>
+                <Entry Placeholder="請輸入帳號" Text="{Binding UserID}"/>
+                <Label Text="密碼"/>
+                <Entry Placeholder="請輸入密碼"/>
+            <Button Text="登入" BorderRadius="15" Command="{Binding btnLogin}"/>
+            <Button Text="scan" BorderRadius="15" Command="{Binding scanLogin}" ></Button>
+            <ScrollView>
+                <Label Text="{Binding InforJSON}"/>
+            </ScrollView>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
